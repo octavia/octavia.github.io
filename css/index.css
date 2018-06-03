@@ -10,6 +10,11 @@ p {
 	margin: 0.75em 0 0 0;
 }
 
+img {
+	width: 2em;
+	height: 2em;
+}
+
 .links {
 	display: block;
 	flex-direction: column;
