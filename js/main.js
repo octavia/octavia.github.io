@@ -6684,7 +6684,6 @@ var Skybox = require("./skybox.js");
 var resolution = 1024;
 
 window.onload = function() {
-
     var params = qs.parse(location.hash);
 
     var ControlsMenu = function() {
@@ -6704,33 +6703,6 @@ window.onload = function() {
     };
 
     var menu = new ControlsMenu();
-    var gui = new dat.GUI({
-        autoPlace: false,
-        width: 320,
-    });
-    //gui.add(menu, "seed").name("Seed").listen().onFinishChange(renderTextures);
-    //gui.add(menu, "randomSeed").name("Randomize seed");
-    //gui.add(menu, "fov", 10, 150, 1).name("Field of view °");
-    //gui.add(menu, "pointStars").name("Point stars").onChange(renderTextures);
-    //gui.add(menu, "stars").name("Bright stars").onChange(renderTextures);
-    //gui.add(menu, "sun").name("Sun").onChange(renderTextures);
-    //gui.add(menu, "nebulae").name("Nebulae").onChange(renderTextures);
-    //gui.add(menu, "resolution", [256, 512, 1024, 2048, 4096]).name("Resolution").onChange(renderTextures);
-    //gui.add(menu, "unifiedTexture").name("Unified texture");
-    //gui.add(menu, "animationSpeed", 0, 10).name("Animation speed");
-
-    document.body.appendChild(gui.domElement);
-    gui.domElement.style.position = "fixed";
-    gui.domElement.style.left = "16px";
-    gui.domElement.style.top = "272px";
-
-    function hideGui() {
-        gui.domElement.style.display = "none";
-    }
-
-    function showGui() {
-        gui.domElement.style.display = "block";
-    }
 
     function hideUnified() {
         document.getElementById("texture-canvas").style.display = "none";
@@ -6757,28 +6729,6 @@ window.onload = function() {
         document.getElementById("texture-front").style.display = "block";
         document.getElementById("texture-back").style.display = "block";
     }
-/*
-    function setQueryString() {
-        location.hash = qs.stringify({
-            seed: menu.seed,
-            fov: menu.fov,
-            pointStars: menu.pointStars,
-            stars: menu.stars,
-            sun: menu.sun,
-            nebulae: menu.nebulae,
-            resolution: menu.resolution,
-            animationSpeed: menu.animationSpeed,
-        });
-    }
-*/
-    var hideControls = true;
-/*
-    window.onkeypress = function(e) {
-        if (e.charCode == 32) {
-            hideControls = !hideControls;
-        }
-    };
-*/
     var renderCanvas = document.getElementById("render-canvas");
     renderCanvas.width = renderCanvas.clientWidth;
     renderCanvas.height = renderCanvas.clientHeight;
@@ -6828,19 +6778,8 @@ window.onload = function() {
     var tick = 0.0;
 
     function render() {
-
         hideUnified();
         hideSplit();
-        hideGui();
-
-        if (!hideControls) {
-            showGui();
-            if (menu.unifiedTexture) {
-                showUnified();
-            } else {
-                showSplit();
-            }
-        }
 
         tick += 0.0025 * menu.animationSpeed;
 
@@ -6858,12 +6797,8 @@ window.onload = function() {
         skybox.render(view, projection);
 
         requestAnimationFrame(render);
-
-        //setQueryString();
     }
-
     render();
-
 };
 
 function generateRandomSeed() {
