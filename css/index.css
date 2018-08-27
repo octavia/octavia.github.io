@@ -39,6 +39,7 @@ p {
 .maya .links {
 	display: flex;
 	flex-direction: row;
+	padding-left: 3em;
 }
 
 img {
