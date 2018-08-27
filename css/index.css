@@ -8,17 +8,42 @@ p {
 	font-weight: 700;
 	font-size: 4em;
 	color: #fff;
-	margin: 0.75em 0 0 0;
+	margin: 0;
+}
+
+.octavia, .maya {
+	width: 50%
+}
+
+.octavia {
+	padding-right: 2em;
+}
+.maya {
+	padding-left: 2em;
+}
+
+.octavia p {
+	text-align: right;
+}
+
+.octavia .links {
+	display: flex;
+	flex-direction: row-reverse;
+	padding-right: 2.5em;
+}
+
+.maya p {
+	text-align: left;
+}
+
+.maya .links {
+	display: flex;
+	flex-direction: row;
 }
 
 img {
 	width: 2em;
 	height: 2em;
-}
-
-.links {
-	display: block;
-	flex-direction: column;
 }
 
 a {
@@ -36,6 +61,8 @@ a:hover {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+	display: flex;
+	
 	width: 100%;
 	position: fixed;
 	text-align: center;
