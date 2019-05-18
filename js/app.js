@@ -5,10 +5,10 @@ class Application extends React.Component {
       <div className='information'>
         <p>OCTAVIA</p>
         <div className="links">
-          <a href="https://twitter.com/octayyvia" target="_blank"><img src="images/twitter.svg"></img></a>
-					<a href="https://www.twitch.tv/octayyvia" target="_blank"><img src="images/twitch.svg"></img></a>
-					<a href="https://www.soundcloud.com/octayyvia" target="_blank"><img src="images/soundcloud.svg"></img></a>
-					<a href="https://www.youtube.com/channel/UCo5iJfS9rDGTNyZmSKKHy5w" target="_blank"><img src="images/youtube.svg"></img></a>
+          <a href="https://twitter.com/octaviauwu" target="_blank"><img src="images/twitter.svg"></img></a>
+          <a href="https://www.twitch.tv/octayyvia" target="_blank"><img src="images/twitch.svg"></img></a>
+          <a href="https://www.soundcloud.com/octaviauwu" target="_blank"><img src="images/soundcloud.svg"></img></a>
+          <a href="https://www.youtube.com/channel/UCo5iJfS9rDGTNyZmSKKHy5w" target="_blank"><img src="images/youtube.svg"></img></a>
         </div>
       </div>
       <div className="heart">
