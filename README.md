@@ -1,4 +1,4 @@
-## owO
+## Personal Site
 
 ### Acknowledgements
 * wwwtyro - https://github.com/wwwtyro
