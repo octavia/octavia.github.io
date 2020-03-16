@@ -1,4 +1,4 @@
 ## Personal Site
 
-### Acknowledgements
-* wwwtyro - https://github.com/wwwtyro
+### Source Code
+https://github.com/syri/PersonalWebsite
