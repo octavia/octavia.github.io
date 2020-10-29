@@ -29,6 +29,15 @@ class App extends Component {
     this.tick = 0.0;
 
     this.renderSpace = this.renderSpace.bind(this);
+
+    this.state = {
+      socialLinks: {
+        twitter: '',
+        youtube: '',
+        twitch: '',
+        github: ''
+      }
+    }
   }
 
   componentDidMount() {
@@ -56,6 +65,10 @@ class App extends Component {
     }
 
     fetchShaders();
+
+    fetch('social.json')
+    .then(response => response.text())
+    .then(text => { this.setState({ socialLinks: JSON.parse(text).socialLinks }) });
   }
 
   hideUnified() {
@@ -136,10 +149,10 @@ class App extends Component {
         <div id="information">
           <p>SYRI</p>
           <div id="links">
-            <a href="https://github.com/syri" target="_blank" rel="noopener noreferrer"><img src={githubLogo} alt="GitHub Link"></img></a>
-            <a href="https://twitter.com/syriuwu" target="_blank" rel="noopener noreferrer"><img src={twitterLogo} alt="Twitter Link"></img></a>
-            <a href="https://www.twitch.tv/syriuwu" target="_blank" rel="noopener noreferrer"><img src={twitchLogo} alt="Twitch Link"></img></a>
-            <a href="https://www.youtube.com/channel/UCo5iJfS9rDGTNyZmSKKHy5w" target="_blank" rel="noopener noreferrer"><img src={youtubeLogo} alt="YouTube Link"></img></a>
+            <a href={this.state.socialLinks.github} target="_blank" rel="noopener noreferrer"><img src={githubLogo} alt="GitHub Link"></img></a>
+            <a href={this.state.socialLinks.twitter} target="_blank" rel="noopener noreferrer"><img src={twitterLogo} alt="Twitter Link"></img></a>
+            <a href={this.state.socialLinks.twitch} target="_blank" rel="noopener noreferrer"><img src={twitchLogo} alt="Twitch Link"></img></a>
+            <a href={this.state.socialLinks.youtube} target="_blank" rel="noopener noreferrer"><img src={youtubeLogo} alt="YouTube Link"></img></a>
           </div>
         </div>
       </div>
