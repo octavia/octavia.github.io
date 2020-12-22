@@ -3,11 +3,6 @@ import { mat4 } from 'gl-matrix';
 import Space3D from './space3d/space3D';
 import Skybox from './space3d/skybox';
 
-import githubLogo from './images/github.svg';
-import twitterLogo from './images/twitter.svg';
-import twitchLogo from './images/twitch.svg';
-import youtubeLogo from './images/youtube.svg';
-
 
 class App extends Component {
   constructor(props) {
@@ -31,12 +26,7 @@ class App extends Component {
     this.renderSpace = this.renderSpace.bind(this);
 
     this.state = {
-      socialLinks: {
-        twitter: '',
-        youtube: '',
-        twitch: '',
-        github: ''
-      }
+      pageData: {}
     }
   }
 
@@ -64,11 +54,11 @@ class App extends Component {
       this.renderSpace();
     }
 
-    fetchShaders();
+    fetch('pageData.json')
+      .then(response => response.text())
+      .then(text => { this.setState({ pageData: JSON.parse(text) }) });
 
-    fetch('social.json')
-    .then(response => response.text())
-    .then(text => { this.setState({ socialLinks: JSON.parse(text).socialLinks }) });
+    fetchShaders();
   }
 
   hideUnified() {
@@ -143,16 +133,33 @@ class App extends Component {
     requestAnimationFrame(this.renderSpace)
   }
 
+  getLinks()
+  {
+    let elements = [];
+
+    for (let socialLink in this.state.pageData.socialLinks)
+    {
+      elements.push(
+        <a key={this.state.pageData.socialLinks[socialLink].name} href={this.state.pageData.socialLinks[socialLink].url} target="_blank" rel="noopener noreferrer">
+          <img src={'images/' + this.state.pageData.socialLinks[socialLink].logo} alt={this.state.pageData.socialLinks[socialLink].name} />
+        </a>
+      );
+    }
+
+    return elements;
+  }
+
   render() {
     return (
       <div id="App">
         <div id="information">
-          <p>SYRI</p>
+          <p>{this.state.pageData.pageTitle}</p>
           <div id="links">
-            <a href={this.state.socialLinks.github} target="_blank" rel="noopener noreferrer"><img src={githubLogo} alt="GitHub Link"></img></a>
+            {this.getLinks()}
+            {/* <a href={this.state.socialLinks.github} target="_blank" rel="noopener noreferrer"><img src={githubLogo} alt="GitHub Link"></img></a>
             <a href={this.state.socialLinks.twitter} target="_blank" rel="noopener noreferrer"><img src={twitterLogo} alt="Twitter Link"></img></a>
             <a href={this.state.socialLinks.twitch} target="_blank" rel="noopener noreferrer"><img src={twitchLogo} alt="Twitch Link"></img></a>
-            <a href={this.state.socialLinks.youtube} target="_blank" rel="noopener noreferrer"><img src={youtubeLogo} alt="YouTube Link"></img></a>
+            <a href={this.state.socialLinks.youtube} target="_blank" rel="noopener noreferrer"><img src={youtubeLogo} alt="YouTube Link"></img></a> */}
           </div>
         </div>
       </div>
