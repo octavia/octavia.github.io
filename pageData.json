@@ -1,11 +1,11 @@
 {
-  "pageTitle": "SYRI",
+  "pageTitle": "VINYL",
   "socialLinks":
   [
     {
       "name": "Twitter",
       "logo": "twitter.svg",
-      "url": "https://twitter.com/SyriRein"
+      "url": "https://twitter.com/vinyllol"
     },
     {
       "name": "Youtube",
@@ -15,12 +15,12 @@
     {
       "name": "Twitch",
       "logo": "twitch.svg",
-      "url": "https://www.twitch.tv/syrirein"
+      "url": "https://www.twitch.tv/vinylismoe"
     },
     {
       "name": "GitHub",
       "logo": "github.svg",
-      "url": "https://github.com/syri"
+      "url": "https://github.com/vinyllol"
     }
   ]
 }
